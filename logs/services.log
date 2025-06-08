@@ -1,0 +1,15 @@
+[2025-06-01T22:08:29+03:00] [create-update-post-form.php] Regex validation failed: article
+[2025-06-01T22:08:29+03:00] [create-update-post-form.php] ERROR: Недопустимые символы в поле: article
+[2025-06-01T22:12:17+03:00] [create-update-post-form.php] Post updated: ID=3, User=1, URL=new-flat-in-petrogradskaya
+[2025-06-01T22:28:30+03:00] [create-update-post-form.php] УСПЕХ: Пост обновлен: ID=3, Пользователь=smmrv-dev, URL=new-flat-in-petrogradskaya
+[2025-06-01T23:06:24+03:00] [functions.php] ERROR: : CSRF токен недействителен. Пользователь: 1
+[2025-06-01T23:10:19+03:00] [unpublish-post.php] SUCCESS: : Пост №2 успешно снят с публикации!
+[2025-06-01T23:10:25+03:00] [publish-post.php] SUCCESS: : Пост №2 успешно опубликован!
+[2025-06-01T23:16:14+03:00] [unpublish-post.php] SUCCESS: : Пост №2 успешно снят с публикации!
+[2025-06-01T23:16:17+03:00] [publish-post.php] SUCCESS: : Пост №2 успешно опубликован!
+[2025-06-01T23:22:49+03:00] [unpublish-post.php] SUCCESS: Пост №2 успешно снят с публикации!
+[2025-06-01T23:22:52+03:00] [publish-post.php] SUCCESS: Пост №2 успешно опубликован!
+[2025-06-01T23:27:37+03:00] [unpublish-post.php] SUCCESS: Пост №2 успешно снят с публикации!
+[2025-06-01T23:27:37+03:00] [get-post-status.php] SUCCESS: Пост №2 успешно получен, статус: не опубликован
+[2025-06-01T23:27:39+03:00] [publish-post.php] SUCCESS: Пост №2 успешно опубликован!
+[2025-06-01T23:27:39+03:00] [get-post-status.php] SUCCESS: Пост №2 успешно получен, статус: опубликован
