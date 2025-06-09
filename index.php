@@ -96,9 +96,9 @@ if (IsAuthenticated()) {
               </div>
 
               <!-- Turnstile -->
-              <!-- <div class="cf-turnstile" data-sitekey="0x4AAAAAABckF0Iox-_gLbxs" data-theme="light" data-size="flexible"
+              <div class="cf-turnstile" data-sitekey="0x4AAAAAABckF0Iox-_gLbxs" data-theme="light" data-size="flexible"
                 style="width: 100%; margin-top: 1vw;">
-              </div> -->
+              </div>
 
             </div>
           </div>

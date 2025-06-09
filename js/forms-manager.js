@@ -22,6 +22,10 @@ const FormsManager = {
         }
       });
       const data = await response.json();
+
+      // const dataText = await response.text();
+      // console.log(dataText);
+
       if (data.success) {
         onSuccess && onSuccess(data, form);
       } else {

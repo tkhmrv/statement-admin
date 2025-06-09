@@ -53,6 +53,7 @@ const PostsCrudManager = {
         if (data.isPublished == 1) {
           if (postImage) postImage.style.display = 'none';
           if (iframe) iframe.style.display = 'block';
+          if (iframe) iframe.src = 'https://smmrv.online/journal-posts/' + data.url;
           if (publishButton) publishButton.style.display = 'none';
           if (unpublishButton) unpublishButton.style.display = 'flex';
           if (postUrl) postUrl.style.display = 'inline';

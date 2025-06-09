@@ -48,33 +48,33 @@ try {
     }
 
     // Проверка Turnstile
-    // function verifyTurnstile($token)
-    // {
-    //     $secretKey = $_ENV['TURNSTILE_SECRET_KEY'];
-    //     $url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+    function verifyTurnstile($token)
+    {
+        $secretKey = $_ENV['TURNSTILE_SECRET_KEY'];
+        $url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 
-    //     $data = [
-    //         'secret' => $secretKey,
-    //         'response' => $token,
-    //         'remoteip' => $_SERVER['REMOTE_ADDR']
-    //     ];
+        $data = [
+            'secret' => $secretKey,
+            'response' => $token,
+            'remoteip' => $_SERVER['REMOTE_ADDR']
+        ];
 
-    //     $options = [
-    //         'http' => [
-    //             'method' => 'POST',
-    //             'header' => "Content-type: application/x-www-form-urlencoded\r\n",
-    //             'content' => http_build_query($data)
-    //         ]
-    //     ];
+        $options = [
+            'http' => [
+                'method' => 'POST',
+                'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                'content' => http_build_query($data)
+            ]
+        ];
 
-    //     $context = stream_context_create($options);
-    //     $result = file_get_contents($url, false, $context);
-    //     return json_decode($result)->success ?? false;
-    // }
+        $context = stream_context_create($options);
+        $result = file_get_contents($url, false, $context);
+        return json_decode($result)->success ?? false;
+    }
 
-    // if (empty($turnstile) || !verifyTurnstile($turnstile)) {
-    //     throw new Exception('Проверка Cloudflare Turnstile не пройдена!');
-    // }
+    if (empty($turnstile) || !verifyTurnstile($turnstile)) {
+        throw new Exception('Проверка Cloudflare Turnstile не пройдена!');
+    }
 
     // Проверка пароля
     if (empty($pass)) {

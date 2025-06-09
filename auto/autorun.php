@@ -2,11 +2,13 @@
 // Проверка, что скрипт запущен через CLI
 if (php_sapi_name() !== 'cli') {
     LogAction(basename(__FILE__), __DIR__ . '/../logs/cron.log', "DANGER", 'Скрипт запущен не через CLI');
+    exit(1);
 }
 
 // Проверка, что скрипт запущен через cron
 if (!isset($_SERVER['CRON_JOB'])) {
     LogAction(basename(__FILE__), __DIR__ . '/../logs/cron.log', "DANGER", 'Скрипт запущен не через cron');
+    exit(1);
 }
 
 require_once __DIR__ . '/../services/db-connection.php';

@@ -166,12 +166,40 @@ function sendTelegramMessage($token, $chatId, $message)
             'method' => 'POST',
             'header' => "Content-Type: application/x-www-form-urlencoded",
             'content' => $postData,
-            'timeout' => 10
+            'timeout' => 10,
+            'ignore_errors' => true
         ]
     ]);
 
-    $response = file_get_contents($url, false, $context);
-    return json_decode($response, true) ?? ['ok' => false];
+    $response = @file_get_contents($url, false, $context);
+    
+    // Получаем HTTP код
+    $httpCode = 0;
+    if (isset($http_response_header[0])) {
+        preg_match('{HTTP/\S*\s(\d{3})}', $http_response_header[0], $match);
+        $httpCode = $match[1] ?? 0;
+    }
+
+    if ($response === false) {
+        return [
+            'ok' => false,
+            'error_code' => $httpCode,
+            'description' => 'Failed to connect to Telegram API',
+            'http_code' => $httpCode
+        ];
+    }
+
+    $result = json_decode($response, true) ?? ['ok' => false];
+    
+    // Добавляем HTTP код в результат
+    $result['http_code'] = $httpCode;
+    
+    // Если ответ не успешен, добавляем код ошибки
+    if (!$result['ok']) {
+        $result['error_code'] = $result['error_code'] ?? $httpCode;
+    }
+
+    return $result;
 }
 
 function LogAction($sourceFile, $logFile, $type, $message)
